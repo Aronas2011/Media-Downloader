@@ -3,6 +3,7 @@ import os
 import dotenv
 from spotdl import Spotdl
 from pathlib import Path
+import yt_dlp
 
 #for future updates if spotify makes their api more accesable
 dotenv.load_dotenv()
@@ -34,7 +35,7 @@ async def main():
             client_id=os.getenv("PUBLIC_KEY"),
             client_secret=os.getenv("SECRET_KEY"),
             downloader_settings={
-        "output": f"{music_path.as_posix()}{list-name}/{artists} - {title}.{output-ext}"
+        "output": "{music_path.as_posix()}{list-name}/{artists} - {title}.{output-ext}"
         })
 
         #end of auth
@@ -59,6 +60,38 @@ async def main():
             print("Found the song")
             await spotdl_client.download_songs(songs)
             print("Track Download Complete")
+
+
+
+    if "youtube.com"  in url:
+
+
+        #same as in spotify, we check for the Videos Folder in the home directory, if its not there, we ask for an input from the user.
+        video_path =  Path.home() / "Videos"
+        if not video_path.is_dir():
+            print("Warning! \n Could not find a default Video folder")
+            while True:
+                custom_folder = input("Enter your Folder name: ")
+                if custom_folder:
+                    video_path = Path(custom_folder)
+                    video_path.mkdir(parents=True, exist_ok=True)
+                    break
+                print("Input cannot be empty, Please enter a valid name.")
+        
+        ydl_opts = {
+        'format': 'best', # Downloads the best quality
+        'paths': {'home': str(video_path)},
+        'outtmpl': '%(title)s.%(ext)s', # Saves the file using the video title
+        }
+
+        def download_yt_vid(url):
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+
+        print("Starting Youtube Video Download")
+
+        loop = asyncio.get_event_loop()
+        await loop.run_in_executor(None, download_yt_vid, url)       
 
 if __name__ == "__main__":
     try:
