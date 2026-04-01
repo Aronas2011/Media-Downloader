@@ -7,6 +7,8 @@ Last updated on: Wednesday, April 1 | 14:18
 
 This Tool is uses python 3.12 with the Spotdl Library to gather information from Spotify.
 
+This Project takes a provided URL and goes to find the Media
+
 To use the tool:
 
 Spotify:
