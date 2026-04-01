@@ -4,16 +4,29 @@ import dotenv
 from spotdl import Spotdl
 from pathlib import Path
 import yt_dlp
+import argparse
+
+#adding in commands for the terminal interface using argparse
+
+parser = argparse.ArgumentParser(description="Media Downloading tool")
+subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+#Download commands
+download_command = subparsers.add_parser("--download", help="Download the media via a link")
+download_command.add_argument("--url" help="Provide the URL to download YT/SPOTIFY")
+
+
 
 #for future updates if spotify makes their api more accesable
 dotenv.load_dotenv()
 
+
 #async needed for modern python netowrking
-async def main():
+async def main(url=None):
 
-
-
-    url = input("Enter the URL of the media you want to download: ")
+    while not url:
+        url = input("Enter the URL of the media you want to download: ")
+        
 
 
     if "spotify" in url:
@@ -43,7 +56,7 @@ async def main():
         loop = asyncio.get_event_loop()
         songs = await loop.run_in_executor(None, spotdl_client.search, [url])
 
-        
+            
         if not songs:
             print("No songs found, exiting, check if the provided link is public.")
             return
@@ -77,7 +90,7 @@ async def main():
                     video_path.mkdir(parents=True, exist_ok=True)
                     break
                 print("Input cannot be empty, Please enter a valid name.")
-        
+            
         ydl_opts = {
         'format': 'best', # Downloads the best quality
         'paths': {'home': str(video_path)},
