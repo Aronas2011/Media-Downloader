@@ -2,7 +2,7 @@ Media Downloader
 
 Created by Aronas Kukleris
 
-Created on: Tuesday, March 31 | 22:45
+Created on: Tuesday, March 31 | 22:51
 Last updated on: 
 
 This Tool is uses python 3.12 with the Spotdl Library to gather information from Spotify.
