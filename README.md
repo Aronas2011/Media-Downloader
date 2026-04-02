@@ -16,6 +16,6 @@ Spotify:
 4) Check the folder in which it was downloaded and enjoy!
 
 Youtube:
-1)Enter the URL of the Video you want to download
-2)It will be downloaded to the "Videos" file in your Home folder, if that does not exist, u will be prompted for a file name
-3)Check the Folder in which it has downloaded and enjoy!
+1) Enter the URL of the Video you want to download
+2) It will be downloaded to the "Videos" file in your Home folder, if that does not exist, u will be prompted for a file name
+3) Check the Folder in which it has downloaded and enjoy!
