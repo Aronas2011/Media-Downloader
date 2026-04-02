@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#install git
+
+if command -v git &> /dev/null then
+    echo "Git is not installed. Installing now..."
+    sudo pacman -S --noconfirm git
+fi
+
+#Install uv if its not found
+
+if ! command -v uv &> /dev/null; then
+    echo "uv not found. Installing uv..."
+    curl -LsSf https://astral.sh | sh
+    source $HOME/.cargo/env
+fi
+
+#Install your tool using Python 3.12, avoids the 3.14 problems
+
+echo "Installing media-downloader..."
+uv tool install --python 3.12 --force --editable .
