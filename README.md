@@ -23,3 +23,8 @@ Youtube:
 1)Enter the URL of the Video you want to download
 2)It will be downloaded to the "Videos" file in your Home folder, if that does not exist, u will be prompted for a file name
 3)Check the Folder in which it has downloaded and enjoy!
+
+#------------------------------------------------------
+Nico this is not AI, I put my heart and soul into this
+Just becuase i had to remind myself on how python works does not mean this is AI 💔
+#-----------------------------------------------------
