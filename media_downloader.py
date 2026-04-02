@@ -11,13 +11,14 @@ import argparse
 parser = argparse.ArgumentParser(description="Media Downloading tool")
 subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
-#Download commands
-download_command = subparsers.add_parser("--download", help="Download the media via a link")
-download_command.add_argument("--url" help="Provide the URL to download YT/SPOTIFY")
+#Commands and Arguements
+download_command = subparsers.add_parser("download", help="Download the media via a link")
+download_command.add_argument("--url", help="Provide the URL to download YT/SPOTIFY")
+play_command = subparsers.add_parser("play", help="Play your music! upcoming update")
+
+args = parser.parse_args()
 
 
-
-#for future updates if spotify makes their api more accesable
 dotenv.load_dotenv()
 
 
@@ -26,7 +27,7 @@ async def main(url=None):
 
     while not url:
         url = input("Enter the URL of the media you want to download: ")
-        
+
 
 
     if "spotify" in url:
@@ -48,7 +49,7 @@ async def main(url=None):
             client_id=os.getenv("PUBLIC_KEY"),
             client_secret=os.getenv("SECRET_KEY"),
             downloader_settings={
-        "output": "{music_path.as_posix()}{list-name}/{artists} - {title}.{output-ext}"
+        "output": f"{music_path.as_posix()}/{{list-name}}/{{artists}} - {{title}}.{{output-ext}}"
         })
 
         #end of auth
@@ -106,8 +107,14 @@ async def main(url=None):
         loop = asyncio.get_event_loop()
         await loop.run_in_executor(None, download_yt_vid, url)       
 
-if __name__ == "__main__":
+
+def main_entry():
     try:
-        asyncio.run(main())
+        if args.command == "download":
+            asyncio.run(main(args.url))
+        elif args.command == "play":
+            print("Upcoming update?")
+        else:
+            parser.print_help()
     except KeyboardInterrupt:
         print("Program stopped by User")
