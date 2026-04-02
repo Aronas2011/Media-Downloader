@@ -1,0 +1,2 @@
+[console_scripts]
+media_downloader = media_downloader.downloader:main_entry
