@@ -9,7 +9,7 @@ dependencies = [
     "spotdl",
     "yt-dlp",
     "python-dotenv",
-    "requests",]
+    "requests",]   
 
 [project.scripts]
-media_downloader = "media_downloader:main_entry"
+media_downloader = "media_downloader.downloader:main_entry"
