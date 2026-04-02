@@ -3,11 +3,13 @@ Media Downloader
 Created by Aronas Kukleris
 
 Created on: Tuesday, March 31 | 22:51
-Last updated on: Wednesday, April 1 | 14:18
+Last updated on: Thursday, April 2 | 16:15
 
 This Tool is uses python 3.12 with the Spotdl Library to gather information from Spotify.
 
 To use the tool:
+Go to your Linux terminal and enter "media_downloader download --url <url>"
+
 
 Spotify:
 1) Get the URL of your playlist or Track, ensure your playlist is public
