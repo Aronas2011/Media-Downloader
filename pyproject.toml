@@ -1,7 +1,7 @@
 [project]
 name = "media_downloader"
 version = "0.1.0"
-description = "This project is used for downloading media from sites"
+description = "Download Media from the web"
 readme = "README.md"
 requires-python = ">=3.12"
 

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+rm -rf Media_downloader
+
+echo "Removing previous version"
+
+gh repo clone Aronas2011/Media-Downloader
+
+echo "Cloning Repository"
+
+cd Media_downloader
+
+chmod +x installer
+
+echo "running installer"
+
+./installer
