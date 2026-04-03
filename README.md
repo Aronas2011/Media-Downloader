@@ -12,7 +12,7 @@ This Project takes a provided URL and goes to find the Media
 
 To use the tool:
 1) cd into the directory where you installed the tool
-2) go to the .env.examples file and add your keys, u can get them by going to https://developer.spotify.com/dashboard and creating an application, get the Public and   Secret key and enter them into the .env
+2) go to the .env.examples file and add your keys, you can get them by going to https://developer.spotify.com/dashboard and creating an application, get the Public and   Secret key and enter them into the .env
 
 3) run the installer
 4) Go to your Linux terminal and enter "media_downloader download --url <url>"
@@ -26,7 +26,7 @@ Spotify:
 
 Youtube:
 1) Enter the URL of the Video you want to download
-2) It will be downloaded to the "Videos" file in your Home folder, if that does not exist, u will be prompted for a file name
+2) It will be downloaded to the "Videos" file in your Home folder, if that does not exist, you will be prompted for a file name
 3) Check the Folder in which it has downloaded and enjoy!
 
 #------------------------------------------------------
